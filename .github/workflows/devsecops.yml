@@ -7,6 +7,8 @@ on:
 jobs:
   devsecops:
     runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: ${{ github.sha }}
     steps:
       # =========================
       # 1. Checkout
@@ -101,7 +103,10 @@ jobs:
         run: |
           cd backend/api-gateway
           semgrep --config=auto --severity=ERROR
-
+      - name: SAST frontend
+        run: |
+          cd frontend
+          semgrep --config=auto --severity=ERROR
       - name: Validate env files
         run: |
           test -f backend/users-service/.env
@@ -125,21 +130,21 @@ jobs:
       - name: Trivy scan users-service
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: users-service
+          image-ref: users-service:${{ github.sha }}
           severity: CRITICAL
           exit-code: 1
 
       - name: Trivy scan academic-service
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: academic-service
+          image-ref: academic-service:${{ github.sha }}
           severity: CRITICAL
           exit-code: 1
 
       - name: Trivy scan api-gateway
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: api-gateway
+          image-ref: api-gateway:${{ github.sha }}
           severity: CRITICAL
           exit-code: 1
 
