@@ -60,7 +60,7 @@ Un sistema funcional no es un sistema seguro. Cada etapa responde a: **¿qué pa
 Como evidencia se adjuntan:
 
 - Capturas de pantalla del workflow en GitHub Actions.
-  ![alt text](files/pipeline-devsecops.png)
+  ![alt text](assets/pipeline-devsecops.png)
 
 - URLs de evidencia:
 
