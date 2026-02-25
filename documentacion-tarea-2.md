@@ -62,7 +62,7 @@ Como evidencia se adjuntan:
 - Capturas de pantalla del workflow en GitHub Actions.
   ![alt text](files/pipeline-devsecops.png)
 
-URLs de evidencia (completar):
+- URLs de evidencia:
 
 1. Repositorio: `https://github.com/j4vie2/tarea-2-devsecops`
 2. Pipeline GitHub Actions: `https://github.com/j4vie2/tarea-2-devsecops/actions/runs/22379608499/job/64777201873`
