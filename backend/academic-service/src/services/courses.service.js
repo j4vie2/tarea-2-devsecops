@@ -1,7 +1,7 @@
 // src/services/courses.service.js
 const courses = [
-  { id: 1, name: "Arquitectura de Software" },
-  { id: 2, name: "DevSecOps" },
+  { id: 1, name: 'Arquitectura de Software' },
+  { id: 2, name: 'DevSecOps' },
 ];
 
 function getAll() {

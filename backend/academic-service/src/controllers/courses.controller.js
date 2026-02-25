@@ -1,7 +1,8 @@
+const AcademicFacade = require('../facades/academic.facade');
+
 function getCourses(req, res) {
   try {
-    const academicFacade = require("../facades/academic.facade");
-    const courses = academicFacade.getCourses(req.user);
+    const courses = AcademicFacade.getCourses(req.user);
     res.json(courses);
   } catch (err) {
     res.status(403).json({ error: err.message });
