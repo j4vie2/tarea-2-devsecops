@@ -1,4 +1,4 @@
-const authFacade = require("../facades/auth.facades");
+const authFacade = require('../facades/auth.facades');
 
 async function login(req, res) {
   try {

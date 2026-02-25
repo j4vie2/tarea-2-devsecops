@@ -6,7 +6,6 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 app.use(cors());
-// app.use(express.json());
 
 // Health check (DevSecOps)
 app.get('/health', (_req, res) => {
@@ -17,7 +16,7 @@ app.get('/health', (_req, res) => {
 app.use(
   '/auth',
   createProxyMiddleware({
-    target: 'http://users-service:3001',
+    target: process.env.USERS_SERVICE_URL || 'http://users-service:3001',
     changeOrigin: true,
   }),
 );
@@ -26,12 +25,9 @@ app.use(
 app.use(
   '/courses',
   createProxyMiddleware({
-    target: 'http://academic-service:3002',
+    target: process.env.ACADEMIC_SERVICE_URL || 'http://academic-service:3002',
     changeOrigin: true,
   }),
 );
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  // console.log(`🌐 API Gateway running on port ${PORT}`);
-});
+module.exports = app;

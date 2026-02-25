@@ -1,12 +1,12 @@
-const coursesService = require("../services/courses.service");
+const coursesService = require('../services/courses.service');
 
 class AcademicFacade {
-  getCourses(user) {
+  static getCourses(user) {
     if (!user) {
-      throw new Error("No autorizado");
+      throw new Error('No autorizado');
     }
     return coursesService.getAll();
   }
 }
 
-module.exports = new AcademicFacade();
+module.exports = AcademicFacade;
