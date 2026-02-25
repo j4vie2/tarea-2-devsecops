@@ -3,6 +3,7 @@ on:
   push:
     branches: ["main"]
   pull_request:
+    branches: ["main"]
 jobs:
   devsecops:
     runs-on: ubuntu-latest
@@ -78,6 +79,8 @@ jobs:
         run: |
           cd frontend
           npm ci
+          npm run lint
+          npm audit --omit=dev --audit-level=critical
           npm test
       # =========================
       # 5. SAST – Semgrep
